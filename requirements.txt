@@ -1,0 +1,10 @@
+dagshub
+transformers
+langchain_community
+transformers 
+einops 
+accelerate 
+langchain 
+bitsandbytes
+OpenAI
+seaborn
