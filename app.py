@@ -9,19 +9,21 @@
 
 # PRETRAINED_LM = "bert-base-uncased"
 # tokenizer = BertTokenizer.from_pretrained(PRETRAINED_LM, do_lower_case=True)
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split
+
+
+# from transformers import BertTokenizer, BertForSequenceClassification, AdamW
+# from sklearn.model_selection import KFold
+# import torch
+# import torch.nn as nn
+# from sklearn.preprocessing import MultiLabelBinarizer
+# from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+# from sklearn.metrics import classification_report
+# import pickle
+# from collections import Counter
+
+
 import numpy as np
-from transformers import BertTokenizer, BertForSequenceClassification, AdamW
-from sklearn.model_selection import KFold
-import torch
-import torch.nn as nn
-from sklearn.preprocessing import MultiLabelBinarizer
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from sklearn.metrics import classification_report
-import pickle
-from collections import Counter
-
-
 import re
 from langchain import PromptTemplate
 from langchain.tools import BaseTool
@@ -37,7 +39,7 @@ import json
 
 st.set_page_config(layout="wide")
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 class WrapperFrame_v1:
@@ -167,7 +169,8 @@ class EvaluationProcessPipeline:
 
 import os
 from langchain.chat_models import ChatOpenAI
-from sklearn.preprocessing import MultiLabelBinarizer
+
+# from sklearn.preprocessing import MultiLabelBinarizer
 import time
 
 
