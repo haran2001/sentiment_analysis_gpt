@@ -1,45 +1,20 @@
-# from google.colab import drive
-# import pandas as pd
-# import json
-# from sklearn.preprocessing import MultiLabelBinarizer
-# import time
-# import pandas as pd
-# from google.colab import drive
-# from transformers import BertTokenizer
-
-# PRETRAINED_LM = "bert-base-uncased"
-# tokenizer = BertTokenizer.from_pretrained(PRETRAINED_LM, do_lower_case=True)
-# from sklearn.model_selection import train_test_split
-
-
-# from transformers import BertTokenizer, BertForSequenceClassification, AdamW
-# from sklearn.model_selection import KFold
-# import torch
-# import torch.nn as nn
-# from sklearn.preprocessing import MultiLabelBinarizer
-# from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-# from sklearn.metrics import classification_report
-# import pickle
-# from collections import Counter
-
-
-import numpy as np
 import re
 from langchain import PromptTemplate
 from langchain.tools import BaseTool
-
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
-
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-
 import json
+import os
+from langchain.chat_models import ChatOpenAI
+import time
+
+
+import os
 
 st.set_page_config(layout="wide")
-
-# device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 class WrapperFrame_v1:
@@ -131,11 +106,9 @@ Examples for Reference:
 
 class EvaluationProcessPipeline:
 
-    def __init__(self, client, row):
+    def __init__(self, client, text):
         self.client = client
-        # self.row = row
-        # self.text = self.row["Text"]
-        self.text = row
+        self.text = text
         self.agent = Sentiment_Agent(self.client)
 
     def process_tweet(self):
@@ -167,15 +140,6 @@ class EvaluationProcessPipeline:
         return []
 
 
-import os
-from langchain.chat_models import ChatOpenAI
-
-# from sklearn.preprocessing import MultiLabelBinarizer
-import time
-
-
-import os
-
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
@@ -203,9 +167,10 @@ def main():
 
     user_input = st.text_input("", key="input")
     if st.button("Classify GPT"):
-        agent = EvaluationProcessPipeline(llm, user_input)
-        label = agent.process_tweet()
-        st.write(label)
+        # agent = EvaluationProcessPipeline(llm, user_input)
+        # label = agent.process_tweet()
+        # st.write(label)
+        st.write("hello world")
 
 
 if __name__ == "__main__":
