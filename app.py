@@ -11,8 +11,6 @@ import os
 from langchain.chat_models import ChatOpenAI
 import time
 
-# import sleep
-
 import os
 
 st.set_page_config(layout="wide")
@@ -168,11 +166,9 @@ def main():
 
     user_input = st.text_input("", key="input")
     if st.button("Classify GPT"):
-        # agent = EvaluationProcessPipeline(llm, user_input)
-        # label = agent.process_tweet()
-        # st.write(label)
-        st.write("hello world")
-        # sleep(10)
+        agent = EvaluationProcessPipeline(llm, user_input)
+        label = agent.process_tweet()
+        st.write(label)
         st.write("hello world")
 
 
