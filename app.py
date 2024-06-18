@@ -169,7 +169,7 @@ def main():
         agent = EvaluationProcessPipeline(llm, user_input)
         label = agent.process_tweet()
         st.write(label)
-        st.write("hello world")
+        # st.write("hello world")
 
 
 if __name__ == "__main__":
