@@ -168,9 +168,13 @@ def main():
     if st.button("Classify GPT"):
         agent = EvaluationProcessPipeline(llm, user_input)
         label = agent.process_tweet()
-        st.write(label)
+        if label == -1:
+            st.write("Negative")
+        elif label == 0:
+            st.write("Neutral")
+        else:
+            st.write("Positive")
         # st.write("hello world")
-
 
 if __name__ == "__main__":
     main()
